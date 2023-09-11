@@ -1,0 +1,177 @@
+\documentclass[10pt]{article} 
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts} % assumes amsmath package installed
+\usepackage[linktocpage=true,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\be}{\boldsymbol{e}}
+\newcommand{\blambda}{\boldsymbol{\lambda}}
+\newcommand{\bLambda}{\boldsymbol{\Lambda}}
+\newcommand{\bu}{\boldsymbol{u}}
+\newcommand{\bw}{\boldsymbol{w}}
+\newcommand{\by}{\boldsymbol{y}}
+\newcommand{\bz}{\boldsymbol{z}}
+\newcommand{\bV}{\boldsymbol{V}}
+\newcommand{\bX}{\boldsymbol{X}}
+\newcommand{\bY}{\boldsymbol{Y}}
+\newcommand{\bZ}{\boldsymbol{Z}}
+\newcommand{\bv}{\boldsymbol{v}}
+\newcommand{\bxi}{\boldsymbol{\xi}}
+\newcommand{\bpi}{\boldsymbol{\pi}}
+\newcommand{\bphi}{\boldsymbol{\phi}}
+\newcommand{\bbeta}{\boldsymbol{\eta}}
+\newcommand{\bpsi}{\boldsymbol{\psi}}
+\newcommand{\bzeta}{\boldsymbol{\zeta}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\newcommand{\bq}{\boldsymbol{q}}
+\newcommand{\bQ}{\boldsymbol{Q}}
+\newcommand{\bK}{\boldsymbol{K}}
+\newcommand{\bP}{\boldsymbol{P}}
+\newcommand{\bS}{\boldsymbol{S}}
+\newcommand{\bT}{\boldsymbol{T}}
+\newcommand{\bF}{\boldsymbol{F}}
+\newcommand{\bG}{\boldsymbol{G}}
+\newcommand{\bd}{\boldsymbol{d}}
+\newcommand{\bp}{\boldsymbol{p}}
+\newcommand{\bff}{\boldsymbol{f}}
+\newcommand{\bc}{\boldsymbol{c}}
+\newcommand{\bg}{\boldsymbol{g}}
+\newcommand{\bh}{\boldsymbol{h}}
+\newcommand{\bA}{\boldsymbol{A}}
+\newcommand{\bL}{\boldsymbol{L}}
+\newcommand{\ba}{\boldsymbol{a}}
+\newcommand{\bb}{\boldsymbol{b}}
+\newcommand{\bB}{\boldsymbol{B}}
+\newcommand{\bC}{\boldsymbol{C}}
+\newcommand{\bE}{\boldsymbol{E}}
+\newcommand{\bH}{\boldsymbol{H}}
+\newcommand{\bR}{\boldsymbol{R}}
+\newcommand{\bn}{\boldsymbol{n}}
+\newcommand{\bm}{\boldsymbol{m}}
+\newcommand{\br}{\boldsymbol{r}}
+\newcommand{\bl}{\boldsymbol{l}}
+\newcommand{\bI}{\boldsymbol{I}}
+\newcommand{\osigma}{\overline{\sigma}}
+\newcommand{\usigma}{\underline{\sigma}}
+\newcommand{\oosigma}{\overline{\osigma}}
+\newcommand{\uusigma}{\underline{\usigma}}
+\newcommand{\olambda}{\overline{\lambda}}
+\newcommand{\ulambda}{\underline{\lambda}}
+\newcommand{\oolambda}{\overline{\olambda}}
+\newcommand{\uulambda}{\underline{\ulambda}}
+\newcommand{\bzero}{\boldsymbol{0}}
+\newcommand{\dist}{\text{\normalfont dist}}
+\newcommand{\st}{\mathop{\text{\normalfont s.t.}}}
+\newcommand{\diag}{\mathop{\text{\normalfont diag}}}
+\newcommand{\amin}{\mathop{\text{\normalfont argmin}}}
+\newcommand{\ReH}{\mathop{\text{\normalfont ReH}}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\interior}{\mathop{\text{\normalfont interior}}}
+\newcommand{\relint}{\mathop{\text{\normalfont relint}}}
+\newcommand{\vertices}{\mathop{\text{\normalfont vertices}}} 
+\sloppy
+\usepackage{graphicx}
+
+\usepackage{enumitem} 
+\usepackage{mathtools}
+\allowdisplaybreaks
+\renewcommand{\theenumi}{(\alph{enumi})} 
+\usepackage{parskip}
+
+\usepackage{tikz}
+
+\usepackage{multirow}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{listings}
+
+\lstset{
+basicstyle=\ttfamily, 
+columns=fullflexible, % make sure to use fixed-width font, CM typewriter is NOT fixed width
+numbers=left, 
+numberstyle=\small\ttfamily\color{Gray},
+stepnumber=1,              
+numbersep=10pt, 
+numberfirstline=true, 
+numberblanklines=true, 
+tabsize=4,
+lineskip=-1.5pt,
+extendedchars=true,
+breaklines=true,        
+keywordstyle=\color{Blue}\bfseries,
+identifierstyle=, % using emph or index keywords
+commentstyle=\sffamily\color{OliveGreen},
+stringstyle=\color{Maroon},
+showstringspaces=false,
+showtabs=false,
+upquote=false,
+texcl=true % interpet comments as LaTeX
+}
+
+
+
+
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+
+
+\lstset{%
+  language         = Julia,
+  basicstyle       = \ttfamily,
+  keywordstyle     = \bfseries\color{blue},
+  stringstyle      = \color{magenta},
+  commentstyle     = \color{ForestGreen},
+  showstringspaces = false,
+}
+
+\definecolor{j1}{rgb}{0.0,0.6056031611752245,0.9786801175696073}
+\definecolor{j2}{rgb}{0.8888735002725198,0.43564919034818994,0.2781229361419438}
+\definecolor{j3}{rgb}{0.2422242978521988,0.6432750931576305,0.3044486515341153}
+\definecolor{j4}{rgb}{0.7644401754934356,0.4441117794687767,0.8242975359232758}
+\definecolor{j5}{rgb}{0.6755439572114057,0.5556623322045815,0.09423433626639477}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
